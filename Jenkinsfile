@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh label '', script: 'docker-compose up -d'
+                sh 'docker build -t nodejs-todolist .'
+                sh 'docker-compose up -d'
             }
         }
     }
