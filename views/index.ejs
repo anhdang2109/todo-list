@@ -16,11 +16,11 @@
       <div class="row">
         <form action="/addTask" method="POST">
           <div class="col-md-offset-2 col-md-6 col-sm-offset-1 col-sm-7">
-            <input type="text" class="form-control" name="textTodo" placeholder="create new task"/>
+            <input type="text" class="form-control" name="textTodo" placeholder="Tạo việc mới"/>
           </div>
           <div class="col-md-4 col-sm-4">
           <button type="submit" class="btn btn-md btn-default" >
-            ADD
+            Thêm công việc
           </button>
         </div>
         </form>
@@ -29,7 +29,7 @@
       <hr />
       <div class="row">
         <div class="col-md-6 col-sm-6">
-          <h4>Todo Items</h4>
+          <h4>Việc cần làm</h4>
           <ul id="todo">
           <% for(var i = 0; i <todos.length; i++){%>
             <% if(todos[i].status == 0){ %>
@@ -42,7 +42,7 @@
           </ul>
         </div>
         <div class="col-md-6 col-sm-6">
-          <h4>Done Items</h4>
+          <h4>Việc hoàn thành</h4>
           <ul id="done">
             <% for(var i = 0; i <todos.length; i++){%>
               <% if(todos[i].status == 1){ %>
