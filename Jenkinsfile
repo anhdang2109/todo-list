@@ -6,5 +6,10 @@ pipeline {
                 git 'https://github.com/anhdang2109/todo-list.git'
             }
         }
+        stage('Build') {
+            steps {
+                sh label '', script: 'docker-compose up -d'
+            }
+        }
     }
 }
