@@ -1,0 +1,28 @@
+version: "3"
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - './init.sql:/docker-entrypoint-initdb.d/init.sql'
+      - './dbdata:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+
+  web:
+    build:
+      context: .
+    environment:
+      DB_SCHEMA: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: postgres
+    depends_on:
+      - db
+    ports:
+      - '8181:8080'
+volumes:
+  dbdata:
+    driver: local
