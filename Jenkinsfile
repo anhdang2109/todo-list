@@ -12,5 +12,12 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
+        stage('Email') {
+            steps {
+                emailext body: 'Successfully', subject: 'Success', to: 'dangtrannamanh2109@gmail.com'
+            }
+        }
+
+
     }
 }
